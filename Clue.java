@@ -64,10 +64,10 @@ public class Clue {
 		whichOne.setLocation(Solution.genRoom(gen.nextInt(9)));
 		
 		// asks a question
-		question(whichOne.getLocation(), Solution.genWeapon(gen.nextInt(6)), Solution.genWeapon(gen.nextInt(9)));
+		question(whichOne.getLocation(), Solution.genWeapon(gen.nextInt(6)), Solution.genPerson(gen.nextInt(9)));
 		
 		// perhaps guess
-		if (whichOne.getKnown().size() > 16) {
+		if (whichOne.getKnown().size() > 9) {
 			String room = "", weapon = "", killer = "";
 			for (String card : rooms) {
 				if (!whichOne.getKnown().contains(card) && !whichOne.getHand().getHand().contains(card))
@@ -127,7 +127,7 @@ public class Clue {
 		do {
 			try {
 				System.out.println("1: Mrs. White\t2: Ms. Scarlet\t3: Prof. Plum\n4: Mrs. Peacock\t5: Col. Mustard\t6: Mr. Green");
-				killer = Solution.genPerson(Integer.parseInt(scan.next()));
+				killer = Solution.genPerson(scan.nextInt());
 			}
 			catch (InputMismatchException e) {
 				scan.nextLine();
@@ -173,7 +173,7 @@ public class Clue {
 			do {
 				try {
 					System.out.println("1: Mrs. White\t2: Ms. Scarlet\t3: Prof. Plum\n4: Mrs. Peacock\t5: Col. Mustard\t6: Mr. Green");
-					killer = Solution.genPerson(Integer.parseInt(scan.next()));
+					killer = Solution.genPerson(scan.nextInt());
 				}
 				catch (InputMismatchException e) {
 					scan.nextLine();
